@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<!-- saved from url=(0105)file:///C:/Users/%D0%90%D1%80%D1%82%D0%B5%D0%BC%20%D0%91%D0%BE%D0%B1%D0%B0%D0%BA/Downloads/index_v2.html# -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kokos MusicPlayer — Официальный сайт</title>
+    <style>
+        :root {
+            --bg-color: #030a16; /* Глубокий темно-синий из приложения */
+            --card-bg: #091528; /* Полуночный синий для карточек */
+            --accent-color: #1e88e5; /* Лазурно-голубой цвет интерфейса */
+            --accent-hover: #1565c0;
+            --text-main: #ffffff;
+            --text-muted: #64b5f6; /* Светло-голубой приглушенный */
+            --border-color: rgba(30, 136, 229, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Навигация */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            border-bottom: 1px solid var(--border-color);
+            background-color: rgba(3, 10, 22, 0.85);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: var(--text-main);
+        }
+
+        /* Главный экран */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px;
+            background: radial-gradient(circle at center, rgba(30, 136, 229, 0.15) 0%, transparent 60%);
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            padding: 16px 45px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 25px rgba(30, 136, 229, 0.4);
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(30, 136, 229, 0.6);
+            background-color: var(--accent-hover);
+        }
+
+        /* Секция возможностей */
+        .features {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-4px);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+        }
+
+        /* Подвал */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 80px;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* Контейнер Политики Конфиденциальности */
+        .policy-container {
+            padding: 80px 5%;
+            max-width: 900px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border-color);
+            display: none;
+        }
+
+        .policy-container.active {
+            display: block;
+        }
+
+        .policy-content {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .policy-content h2 {
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .policy-content h3 {
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+        }
+
+        .policy-content p, .policy-content ul {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .policy-content ul {
+            padding-left: 20px;
+        }
+
+        .main-content.hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.3rem; }
+            .hero p { font-size: 1.05rem; }
+            .policy-content { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Kokos <span>MusicPlayer</span></div>
+        <nav>
+            <a onclick="showPage(&#39;main&#39;)">Главная</a>
+            <a onclick="showPage(&#39;policy&#39;)">Политика конфиденциальности</a>
+        </nav>
+    </header>
+
+    <!-- ГЛАВНАЯ СТРАНИЦА -->
+    <div id="main-page" class="main-content hidden">
+        <section class="hero">
+            <h1>Твоя музыка. Твой вайб. Без компромиссов.</h1>
+            <p>Легковесный, быстрый и стильный музыкальный плеер для Android. Чистый звук, удобное управление медиатекой и поддержка FLAC.</p>
+            <a href="file:///C:/Users/%D0%90%D1%80%D1%82%D0%B5%D0%BC%20%D0%91%D0%BE%D0%B1%D0%B0%D0%BA/Downloads/index_v2.html#" class="btn">Доступно в Aptoide</a>
+        </section>
+
+        <section class="features">
+            <h2>Особенности плеера</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>⚡ Высокая скорость</h3>
+                    <p>Мгновенный запуск и минимальное потребление ресурсов смартфона. Плеер работает идеально плавно.</p>
+                </div>
+                <div class="card">
+                    <h3>🎨 Поддержка FLAC</h3>
+                    <p>Качественное воспроизведение тяжелых аудиоформатов без потери качества звука.</p>
+                </div>
+                <div class="card">
+                    <h3>🔒 Полная автономность</h3>
+                    <p>Слушайте треки локально из памяти телефона. Никакого интернета, рекламы и трекеров.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- СТРАНИЦА ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ -->
+    <div id="policy-page" class="policy-container active">
+        <div class="policy-content">
+            <h2>Политика конфиденциальности</h2>
+            <p><strong>Дата вступления в силу:</strong> 2 июня 2026 г.</p>
+            <p>Настоящая Политика конфиденциальности описывает, как приложение <strong>Kokos MusicPlayer</strong> (именуемое в дальнейшем "Приложение") обрабатывает информацию пользователей.</p>
+
+            <h3>1. Сбор информации</h3>
+            <p>Приложение является локальным аудиопроигрывателем. Мы <strong>не собираем</strong>, не передаем и не обрабатываем ваши персональные данные, файлы, историю прослушиваний или идентификаторы устройств.</p>
+
+            <h3>2. Разрешения устройства</h3>
+            <p>Для полноценного функционирования Приложению могут потребоваться следующие разрешения:</p>
+            <ul>
+                <li><strong>Доступ к хранилищу / медиафайлам:</strong> Требуется исключительно для сканирования внутренней памяти устройства, обнаружения аудиофайлов и их воспроизведения в Приложении.</li>
+            </ul>
+
+            <h3>3. Передача данных третьим лицам</h3>
+            <p>Так как Приложение не собирает данные, какая-либо передача информации третьим сторонам полностью исключена.</p>
+
+            <h3>4. Изменения в политике конфиденциальности</h3>
+            <p>Мы можем периодически обновлять настоящую политику. Изменения вступают в силу сразу после их публикации на этой странице.</p>
+
+            <h3>5. Обратная связь</h3>
+            <p>Если у вас возникли вопросы касательно конфиденциальности, вы можете связаться по электронной почте поддержки.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Kokos MusicPlayer. Все права защищены.</p>
+    </footer>
+
+    <script>
+        function showPage(page) {
+            const mainPage = document.getElementById('main-page');
+            const policyPage = document.getElementById('policy-page');
+            
+            if (page === 'main') {
+                mainPage.classList.remove('hidden');
+                policyPage.classList.remove('active');
+                window.scrollTo(0, 0);
+            } else if (page === 'policy') {
+                mainPage.classList.add('hidden');
+                policyPage.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+        }
+    </script>
+
+
+
+</body></html>
